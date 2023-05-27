@@ -51,7 +51,7 @@ app.get('/stream/:endpoint', (req, res)=>{
 
 
 const ambilTerbaru = async ()=>{
-    const {data} = await axios.get("https://anichin.vip/")
+    const {data} = await axios.get("https://otakudesu.lol/")
 
     const $ = cheerio.load(data)
 
