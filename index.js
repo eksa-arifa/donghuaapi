@@ -51,36 +51,35 @@ app.get('/stream/:endpoint', (req, res)=>{
 
 
 const ambilTerbaru = async ()=>{
-    const {data} = await axios.get("https://otakudesu.lol/")
+    const {data} = await axios.get("https://anichin.vip/")
 
     const $ = cheerio.load(data)
 
-    // const bixbox = []
-     const arr = []
+    const bixbox = []
+    const arr = []
 
-    // $('.bixbox').each((index, element)=>{
-    //     bixbox.push($(element).html())
-    // })
+    $('.bixbox').each((index, element)=>{
+        bixbox.push($(element).html())
+    })
 
-    // const oke = cheerio.load(bixbox[1])
+    const oke = cheerio.load(bixbox[1])
 
-    // oke('.listupd article').each((index, element)=>{
-    //     const judul = $(element).find('.eggtitle').text()
-    //     const type = $(element).find('.eggtype').text()
-    //     const eps = $(element).find('.eggepisode').text()
-    //     let endpoint = $(element).find('a').attr('href')
-    //     endpoint = endpoint.split("/")[3]
+    oke('.listupd article').each((index, element)=>{
+        const judul = $(element).find('.eggtitle').text()
+        const type = $(element).find('.eggtype').text()
+        const eps = $(element).find('.eggepisode').text()
+        let endpoint = $(element).find('a').attr('href')
+        endpoint = endpoint.split("/")[3]
 
-    //     arr.push({
-    //         id : index+1,
-    //         judul : judul,
-    //         type : type,
-    //         eps : eps,
-    //         slug : endpoint
-    //     })
-    // })
+        arr.push({
+            id : index+1,
+            judul : judul,
+            type : type,
+            eps : eps,
+            slug : endpoint
+        })
+    })
 
-    arr.push($().html())
 
     const keluaran = {
         author : "EksaArifa",
